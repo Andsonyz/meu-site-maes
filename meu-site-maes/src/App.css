@@ -1,0 +1,139 @@
+/* Importando uma fonte caligráfica para as legendas */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap');
+
+:root {
+  --cor-fundo: #fff5f5;
+  --cor-texto: #4a4a4a;
+  --cor-destaque: #ff85a2;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cor-fundo);
+  font-family: 'Poppins', sans-serif;
+  color: var(--cor-texto);
+}
+
+.header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
+  color: var(--cor-destaque);
+  margin: 0;
+}
+
+.varal-container {
+  position: relative;
+  padding: 40px 10px;
+  min-height: 400px;
+}
+
+.corda {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #d2b48c;
+  z-index: 1;
+}
+
+.mural {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.polaroid {
+  background: white;
+  padding: 15px 15px 35px 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  width: 250px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.prendedor {
+  width: 10px;
+  height: 30px;
+  background: #e0ac69;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+
+.polaroid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.legenda {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 15px;
+  color: #333;
+}
+
+.polaroid:nth-child(even) { transform: rotate(3deg); }
+.polaroid:nth-child(odd) { transform: rotate(-3deg); }
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .header h1 { font-size: 2.5rem; }
+  .polaroid { width: 85vw; }
+  .polaroid img { height: 300px; }
+  .corda { display: none; }
+}
+
+.footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.emoji-caindo {
+  position: fixed;
+  top: -50px;
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+  animation: cair linear infinite;
+}
+
+@keyframes cair {
+  0% {
+    transform: translateY(0vh) translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  25% { transform: translateY(25vh) translateX(15px) rotate(90deg); }
+  50% { transform: translateY(50vh) translateX(-15px) rotate(180deg); }
+  75% { transform: translateY(75vh) translateX(15px) rotate(270deg); }
+  100% {
+    transform: translateY(105vh) translateX(0px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.container-geral {
+  position: relative;
+  z-index: 1;
+}
